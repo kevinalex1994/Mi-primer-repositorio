@@ -1,25 +1,31 @@
-def buscar_valor(matriz, valor):
-    for i in range(len(matriz)):
-        for j in range(len(matriz[i])):
-            if matriz[i][j] == valor:
-                return True, (i, j)
-    return False, None
-
-# Definir una matriz 3x3 con valores numéricos
+# Crear una matriz bidimensional (3x3)
 matriz = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+    [5, 2, 8],
+    [9, 1, 3],
+    [7, 9, 4]
 ]
 
-# Definir el valor a buscar
-valor_a_buscar = 5
+# Función para ordenar una fila de manera ascendente utilizando Bubble Sort
+def bubble_sort_fila(fila):
+    n = len(fila)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if fila[j] > fila[j + 1]:
+                fila[j], fila[j + 1] = fila[j + 1], fila[j]  # Intercambiar elementos
 
-# Realizar la búsqueda en la matriz
-encontrado, posicion = buscar_valor(matriz, valor_a_buscar)
+# Función para mostrar la matriz
+def mostrar_matriz(matriz):
+    for fila in matriz:
+        print(fila)
 
-# Mostrar el resultado
-if encontrado:
-    print(f"El valor {valor_a_buscar} se encontró en la posición {posicion}")
-else:
-    print(f"El valor {valor_a_buscar} no se encontró en la matriz.")
+# Mostrar la matriz original
+print("Matriz Original:")
+mostrar_matriz(matriz)
+
+# Ordenar cada fila de la matriz utilizando Bubble Sort
+for fila in matriz:
+    bubble_sort_fila(fila)
+
+# Mostrar la matriz ordenada
+print("\nMatriz Ordenada por Filas:")
+mostrar_matriz(matriz)
